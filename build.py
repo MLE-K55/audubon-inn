@@ -55,7 +55,7 @@ def actions(kind='stay'):
     return '<div class="local-links">'+button('Check room availability',BOOK,external=True,event='availability_click')+button('Plan a wedding or event','weddings.html','text-link')+'</div>'
 
 FAQ = [
- ('When are check-in and checkout?','Check-in starts after 2 p.m. Checkout is at 10 a.m. Arrange instructions with the front desk before traveling if you expect to arrive outside your planned schedule.'),
+ ('When are check-in and checkout?','Check-in starts after 2 p.m. Checkout is at 10 a.m. Arriving after front-desk hours? Contact us before arrival to arrange contactless check-in and receive your instructions.'),
  ('Are pets welcome?','Yes, we are pet friendly for an extra fee. Tell the team about your pet before booking so they can confirm the fee and a suitable room.'),
  ('How do I check room prices and availability?',f'<a href="{BOOK}" target="_blank" rel="noopener" data-track="availability_click">Check live room availability on ResNexus</a>. Choose your dates there once, compare available rooms, and review the full price and reservation terms before confirming.'),
  ('Can we reserve a wedding room block?','Ask about a block of 9 or 18 guest rooms, subject to availability. The team will confirm allocation, payment arrangements, release dates, minimum stays, and any exclusivity in your agreement.'),
@@ -65,7 +65,9 @@ FAQ = [
  ('Where should I park or unload?','Call 920-644-2087 for current parking and unloading arrangements before arriving. The inn is at 45 North Main Street in downtown Mayville.'),
  ('How do I check accessibility for my visit?','The inn is a historic building. Before reserving, describe the entrance, elevator, room, bathroom, or step-free route you need. The front desk can discuss the specific route and room for your stay.'),
  ('How is an event inquiry confirmed?','Prepare your event email on our contact page, then send it through your email app, or call the inn. Preparing a draft does not send it. Dates, guest rooms, price, and inclusions are confirmed through your agreement.'),
- ('What should I know before visiting Horicon Marsh?','Choose the national refuge or the state wildlife area before setting out, and check the official visitor guide for current access and facilities. Our <a href="marsh-weekend.html">marsh weekend guide</a> helps you plan the day.')
+ ('What should I know before visiting Horicon Marsh?','Choose the national refuge or the state wildlife area before setting out, and check the official visitor guide for current access and facilities. Our <a href="marsh-weekend.html">marsh weekend guide</a> helps you plan the day.'),
+ ('What are the front-desk hours?','The front desk is staffed Monday–Thursday from 10 a.m.–8 p.m., and Friday–Saturday from 10 a.m.–10 p.m. All times are local to Wisconsin.'),
+ ('Can I check in after front-desk hours?','Yes. Contactless check-in can be arranged if you arrive after front-desk hours. Please <a href="tel:+19206442087">call 920-644-2087</a> or <a href="mailto:hotelonthemarsh@gmail.com">email hotelonthemarsh@gmail.com</a> before arrival so we can arrange your check-in and share the instructions. Check-in starts after 2 p.m.; checkout is at 10 a.m.')
 ]
 from site_content import create_pages
 pages = create_pages(CONFIG,button,image,photo,title,faq_items,cta,actions,FAQ,BOOK,EVENT,MAP)

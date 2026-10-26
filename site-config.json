@@ -27,5 +27,26 @@
   "event_rental_inclusions": "",
   "event_price_guide": "",
   "lead_response_target": "",
-  "managed_inquiry_url": ""
+  "managed_inquiry_url": "",
+  "front_desk_hours": [
+    {
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday"
+      ],
+      "opens": "10:00",
+      "closes": "20:00"
+    },
+    {
+      "days": [
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "10:00",
+      "closes": "22:00"
+    }
+  ],
+  "contactless_check_in_available": true
 }
