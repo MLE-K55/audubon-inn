@@ -19,7 +19,7 @@ The public build allows search indexing and writes the canonical sitemap. For a 
 
 - `site_content.py`: home, rooms, events, weddings, bar, contact, FAQs, and history.
 - `site-config.json`: public canonical URL, booking URL, inquiry route, optional managed form, optional Analytics ID and Search Console verification, and approved property facts used in structured data. If property facts change, update the visible wording in `site_content.py` and the guides too.
-- `brand.html`: shared heron logo.
+- `brand.html`: shared official Audubon Inn logo.
 - `wedding-content.html`: comments explaining where to add wedding photos. Empty photo sections are not shown to guests.
 - `area-content.html`: local attractions and the calendar section; comments reserve three future attraction entries.
 - `dining-content.html`: The Meating Place and four commented future restaurant positions.
