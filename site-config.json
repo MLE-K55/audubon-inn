@@ -1,0 +1,31 @@
+{
+  "site_url": "https://mle-k55.github.io/audubon-inn/",
+  "index_public_site": true,
+  "analytics_measurement_id": "",
+  "search_console_verification": "",
+  "booking_url": "https://resnexus.com/resnexus/reservations/book/D1EC465F-B0AE-476D-885F-5E74C5C2EADA",
+  "inquiry_url": "contact.html#event-inquiry",
+  "phone": "+19206442087",
+  "email": "hotelonthemarsh@gmail.com",
+  "approved_on": "2026-10-26",
+  "room_count": 18,
+  "event_maximum": 150,
+  "event_comfortable": 70,
+  "check_in": "14:00",
+  "check_out": "10:00",
+  "pets_allowed": true,
+  "pet_fee": null,
+  "bar_days": [
+    "Friday",
+    "Saturday"
+  ],
+  "bar_opens": "17:00",
+  "bar_closes": "22:00",
+  "bar_menu_url": "",
+  "parking_details": "",
+  "accessibility_details": "",
+  "event_rental_inclusions": "",
+  "event_price_guide": "",
+  "lead_response_target": "",
+  "managed_inquiry_url": ""
+}

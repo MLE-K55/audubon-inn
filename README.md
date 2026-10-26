@@ -1,53 +1,52 @@
-# The Audubon Inn website
+# Audubon Inn website
 
-Static HTML/CSS/JavaScript website for the Audubon Inn. No framework or database is required.
+Public website: https://mle-k55.github.io/audubon-inn/
 
-## Editing
+## Build and check
 
-- `build.py` contains HTML page templates and the verified booking and inquiry URLs. Run `python build.py` after changing it.
-- `dist/style.css` contains visual styles and responsive breakpoints.
-- `dist/app.js` contains navigation, dialogs, room filters, local stay planning, seasonal suggestions, and email-draft generation.
-- `dist/assets/` contains local optimized property and USFWS photos and the heron SVG favicon.
-- `dist/sources.html` documents property/destination sources and photo credits.
-- Open `dist/index.html` directly for local browsing, or serve the static `dist` directory.
+Python 3.12 or newer is recommended.
 
-## Behavior
+```sh
+python -m pip install -r requirements.txt
+python -X utf8 build.py
+python -X utf8 check_site.py
+python -m http.server 8877 --directory dist
+```
 
-Reservations link to the hotel's verified ResNexus account. The local date planner is explicitly a planning aid; guests re-enter dates at the provider. No live room inventory or reservation is created locally.
+The public build allows search indexing and writes the canonical sitemap. For a private preview, run `python build.py --preview --output preview-dist`. Do not deploy a preview build to GitHub Pages.
 
-Events link to the hotel's existing Dubsado inquiry form. No form is submitted by this site automatically.
+## Edit the website
 
-Contact form data stays in the browser. It creates a reviewable draft and mailto link. The visitor must open their email app and send it.
+- `site_content.py`: home, rooms, events, weddings, bar, contact, FAQs, and history.
+- `site-config.json`: public canonical URL, booking URL, inquiry route, optional managed form, optional Analytics ID and Search Console verification, and approved property facts used in structured data. If property facts change, update the visible wording in `site_content.py` and the guides too.
+- `brand.html`: shared heron logo.
+- `wedding-content.html`: comments explaining where to add wedding photos. Empty photo sections are not shown to guests.
+- `area-content.html`: local attractions and the calendar section; comments reserve three future attraction entries.
+- `dining-content.html`: The Meating Place and four commented future restaurant positions.
+- `wedding-guide-content.html` and `marsh-weekend-content.html`: practical trip-planning guides.
+- `inquiry-content.html`: event email composer. The visitor must open their own email app and send the message; nothing is submitted in the background.
+- `privacy-content.html` and `sources-content.html`: provider, privacy, and credit information.
+- `dist/style.css` and `dist/app.js`: shared styling and interactions.
+- `dist/assets/`: photographs, responsive WebP sizes, and favicon. Keep dimensions and source credits accurate when adding photos. The original 177-by-181 ceremony photo is deliberately displayed small.
 
-## Content review
+## Calendar upkeep
 
-Research checked October 23, 2026. Existing official pages contain conflicting room counts, capacities, prices, desk hours, and policies. This site uses 18 rooms based on the user's confirmed count and the official homepage. It omits conflicting capacities/prices/policies and directs guests to confirm current arrangements. The bar's published Friday/Saturday 5 p.m. opening is shown with a prompt to confirm closing times/private-event closures.
+Edit `local-events.json` with ISO start/end times including offsets, title, organizer, venue, official link, registration instructions, last-checked date, and status. America/Chicago is used for visitor dates. Use `scheduled` for confirmed listings, or remove/change status when cancelled. The calendar opens on the current month and supports month navigation. Expired events move out of the upcoming agenda. An empty month links visitors to official community calendars; it does not invent listings. Review weekly and when dates change.
 
-Property photos originate on hotelonthemarsh.com or its image CDN. They are authentic property photos for this private redesign, not a claim about current furnishings. USFWS sunrise and boardwalk images are identified as public domain with credits in the site. Secure permission for public reuse of hotel photos or replace them with owner-supplied originals before making the site public.
+## Publishing
 
-The GitHub Pages version is public. The original Sites preview is private. This repository does not change the hotel’s existing booking or event services.
+The GitHub Actions workflow checks and publishes `dist/` on pushes to `main`. Rebuild locally before committing when using the file-upload interface. Upload source files at repository root, built files under `dist`, and image variants under `dist/assets`.
 
-## Wedding page photographs
+The older Sites preview remains separate and private. Its hosting manifest is retained; do not replace the public GitHub Pages URL with the preview URL or copy public indexing settings to a private preview.
 
-Edit `wedding-content.html`, which is the source for `dist/weddings.html`.
-Search for `WEDDING PHOTO 1` through `WEDDING PHOTO 4`. Each HTML comment
-names the suggested image file, the `src` to replace, and the alt text to update.
-Put your photos in `dist/assets/`, then run `python -X utf8 build.py`.
-The four current SVG placeholders are intentional and can be replaced individually.
-Rebuilding updates the local files; publishing is a separate step.
+## Inquiry routing
 
+On October 26, 2026, the old Dubsado form displayed “This form can no longer be used” and disabled Send. Public links now lead to the on-site email composer and phone option. No inquiry delivery or CRM completion is claimed. To reconnect a working managed form, verify the new URL and owner first, enter it in `managed_inquiry_url`, then rebuild. Update contact/FAQ/privacy wording to match the actual service. Check delivery and receipt with the owner.
 
-## Local attractions, dining, and calendar
+## Analytics and search setup
 
-- Edit `area-content.html`: search `ACTIVITY 1`, `ACTIVITY 2`, and `ACTIVITY 3` for the three blank attraction sections.
-- Edit `dining-content.html`: search `DINING 1` through `DINING 4` for four blank restaurants. Each comment explains where to put the photo, change its src/alt, and add details.
-- Photos belong in `dist/assets/`. The current placeholders are SVG files.
-- Edit `local-events.json` for the calendar year, month, dates, titles, local times, venues, and organizer URLs. `local_calendar.py` builds the matching month grid and agenda. It supports multiple events on one day.
-- The calendar is a static October 2026 edition, not an auto-updating feed. When changing months, also update the dated headings, verification date, and October link text in `area-content.html`.
-- Run `python -X utf8 build.py` then `python -X utf8 check_site.py`; publish separately to update the hosted website.
-- Sources checked October 24, 2026: https://horiconmarsh.org/events/ ; https://www.fws.gov/refuge/horicon/visit-us ; https://themeatingplacemayville.com/ ; https://themeatingplacemayville.com/contact-the-meating-place/ ; https://themeatingplacemayville.com/events-specials/ .
+`analytics_measurement_id` is empty by default. No Google Analytics request is made until a real ID is configured and the visitor allows optional analytics. The implementation records page views and intent clicks, not booking or inquiry completions. URLs omit query strings/fragments; events do not contain guest names, messages, dates, emails, or phone numbers. Confirm cross-domain support with ResNexus before claiming reservation attribution.
 
+Use `search_console_verification` for an owner-provided HTML verification token. Then verify the URL-prefix property and submit `sitemap.xml`. GitHub project sites cannot control host-root robots.txt from a project subdirectory; a missing robots.txt does not block indexing.
 
-## GitHub Pages
-
-The `Publish website` workflow publishes `dist/` when changes reach `main`. In Settings > Pages, select GitHub Actions as the build source. Rebuild with `python -X utf8 build.py` before committing page edits.
+See MAINTENANCE.md for remaining account setup, property details, and the report implementation record.

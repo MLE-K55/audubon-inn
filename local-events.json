@@ -1,11 +1,29 @@
 {
-  "year": 2026,
-  "month": 10,
+  "timezone": "America/Chicago",
   "events": [
-    {"day": 10, "title": "Bird Banding Demonstration", "time": "8–11 a.m.", "location": "Horicon Marsh — see organizer details", "url": "https://horiconmarsh.org/events/"},
-    {"day": 17, "title": "Ducks, Geese, Cranes OH My! Bus Tour", "time": "3–6:15 p.m.", "location": "Horicon Marsh — see organizer details", "url": "https://horiconmarsh.org/events/"},
-    {"day": 22, "title": "Little Naturalists: Who’s Who of Owls?", "time": "10–11 a.m.", "location": "Horicon Marsh — see organizer details", "url": "https://horiconmarsh.org/events/"},
-    {"day": 29, "title": "Wilderness Academy: GPS Trick or Treating", "time": "10–11:30 a.m.", "location": "Palmatory Picnic Shelter, Horicon", "url": "https://horiconmarsh.org/event/wilderness-academy-gps-trick-or-treating-repeat/"},
-    {"day": 30, "title": "Hike-or-Treat", "time": "5–8 p.m.", "location": "Palmatory Picnic Shelter, 1296 Palmatory St., Horicon", "url": "https://horiconmarsh.org/event/%F0%9F%8E%83-hike-or-treat-palmatory-picnic-shelter/"}
+    {
+      "title": "Wilderness Academy: GPS Trick or Treating",
+      "start": "2026-10-29T10:00:00-05:00",
+      "end": "2026-10-29T11:30:00-05:00",
+      "time": "10–11:30 a.m.",
+      "location": "Palmatory Picnic Shelter, 1296 Palmatory St., Horicon",
+      "organizer": "Friends of Horicon Marsh",
+      "registration": "Check the organizer for meeting-point confirmation and participation details.",
+      "url": "https://horiconmarsh.org/event/wilderness-academy-gps-trick-or-treating-repeat/",
+      "checked": "2026-10-26",
+      "status": "scheduled"
+    },
+    {
+      "title": "Hike-or-Treat",
+      "start": "2026-10-30T17:00:00-05:00",
+      "end": "2026-10-30T20:00:00-05:00",
+      "time": "5–8 p.m.",
+      "location": "Palmatory Picnic Shelter, 1296 Palmatory St., Horicon",
+      "organizer": "Friends of Horicon Marsh",
+      "registration": "See the organizer for current program and attendance details.",
+      "url": "https://horiconmarsh.org/event/%F0%9F%8E%83-hike-or-treat-palmatory-picnic-shelter/",
+      "checked": "2026-10-26",
+      "status": "scheduled"
+    }
   ]
 }
